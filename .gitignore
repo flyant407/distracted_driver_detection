@@ -1,3 +1,4 @@
 images/*
 *.h5
 saved_best_models/
+*.png
