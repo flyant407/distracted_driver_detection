@@ -1,7 +1,7 @@
 import pandas as pd
 from keras.preprocessing.image import ImageDataGenerator
 
-def create_submission(model_name, y_pred):
+def create_submission(model_name, predictions):
     #从原始数据中读取副本
     df = pd.read_csv("sample_submission.csv")
     #获得按照提交文件要求顺序的文件名
@@ -13,8 +13,8 @@ def create_submission(model_name, y_pred):
         df.iat[index,0] = img_name
         #后面10行是每个类别的概论
         for pos in range(10):
-            df.iat[index, pos + 1] = max(min(y_pred[index][pos],1-10**(-15)),10**(-15))
+            df.iat[index, pos + 1] = max(min(predictions[index][pos],1-10**(-15)),10**(-15))
 
-        #生成可提交文件
-        saved_file_name = 'submission/'+model_name + '_submission.csv'
-        df.to_csv(saved_file_name, index=None)
+    #生成可提交文件
+    saved_file_name = 'submission/'+model_name + '_submission.csv'
+    df.to_csv(saved_file_name, index=None)
