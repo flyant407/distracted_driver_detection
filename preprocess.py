@@ -9,8 +9,8 @@ def get_image_tensors(file_path,image_size, preprocess_input = None):
     train_files = file_path + '/train'
     test_files = file_path + '/test2'
     gen = ImageDataGenerator(preprocessing_function=preprocess_input)
-    train_generator = gen.flow_from_directory(train_files, image_size, shuffle=False, batch_size=32)
-    test_generator = gen.flow_from_directory(test_files, image_size, shuffle=False, batch_size=32)
+    train_generator = gen.flow_from_directory(train_files, image_size, shuffle=False, batch_size=128)
+    test_generator = gen.flow_from_directory(test_files, image_size, shuffle=False, batch_size=128)
     #或者使用以下代码
     #train_of_tensor = [preprocess_input(path_to_tensor(img_path, image_size[0], image_size[1])) for img_path in tqdm(train_files)]
     #返回(n_samples, target_size, 3)的4维张量

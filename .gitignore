@@ -1,7 +1,6 @@
 images/
 *.h5
 saved_best_models/
-*.png
 bottleneck_feature/
 submission/
 *.jpg

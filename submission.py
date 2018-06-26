@@ -6,7 +6,7 @@ def create_submission(model_name, predictions):
     df = pd.read_csv("sample_submission.csv")
     #获得按照提交文件要求顺序的文件名
     gen = ImageDataGenerator()
-    test_generator = gen.flow_from_directory('images/test2', (224,224), shuffle=False, batch_size=32)
+    test_generator = gen.flow_from_directory('images/test2', (224,224), shuffle=False, batch_size=128)
     for index, fname in enumerate(test_generator.filenames):
         img_name = fname[5:]
         #第1行是文件名
